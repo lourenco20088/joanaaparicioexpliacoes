@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Área reservada — Centro de Estudos Joana Aparício</title>
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4">
+  <style>
+    .login { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+    .login__form-side { padding: 56px var(--gutter); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+    .login__back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .login__back svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .login form { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 22px; }
+    .login__logo { width: 260px; margin-bottom: 12px; }
+    .login h1 { font-size: 40px; font-stretch: 115%; font-weight: 850; line-height: 1.1; margin-bottom: 8px; }
+    .login__intro { font-size: 17px; line-height: 1.55; color: var(--muted); }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .field label { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .field__row a { font-size: 14px; font-weight: 700; }
+    .field input { height: 54px; padding: 0 18px; border: 1.5px solid #dcd2c2; border-radius: 14px; background: var(--white); font: 16px var(--text); color: var(--ink); }
+    .field input:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 4px rgba(127, 207, 224, .45); }
+    .check { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; color: var(--body); }
+    .check input { width: 20px; height: 20px; margin: 0; accent-color: var(--navy); }
+    .login button[type="submit"] { width: 100%; }
+    .login__msg { padding: 14px 16px; border-radius: 14px; background: #fff4e6; color: var(--navy); font-size: 15px; }
+    .login__help { font-size: 14px; color: var(--muted); }
+    .login__help a { font-weight: 700; }
+
+    .login__panel { background: var(--navy); padding: 80px 88px 96px; display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; }
+    .login__mark { width: min(300px, 60%); height: auto; margin-bottom: auto; }
+    .login__panel .eyebrow { margin: 0; }
+    .login__panel h2 { color: var(--white); font-size: clamp(32px, 3.2vw, 44px); line-height: 1.1; }
+    .login__panel ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .login__panel li { display: flex; align-items: center; gap: 14px; font-size: 17px; color: #e3e8f4; }
+    .login__panel li::before { content: ""; width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; background: var(--dot); }
+
+    @media (max-width: 900px) {
+      .login { grid-template-columns: 1fr; }
+      .login__panel { display: none; }
+      .login__form-side { padding: 24px var(--gutter) 32px; align-items: center; }
+      .login__back { align-self: flex-start; }
+    }
+    @media (max-width: 720px) {
+      .login h1 { font-size: 32px; }
+      .login__logo { width: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <div class="login__form-side">
+      <a href="index.html" class="login__back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        Voltar ao site
+      </a>
+
+      <form id="login-form" novalidate>
+        <img src="assets/logo.svg" alt="Explicações Joana Aparício" class="login__logo" width="260" height="118">
+        <div>
+          <h1>Área reservada</h1>
+          <p class="login__intro">Para administração, professores, alunos e encarregados de educação.</p>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="nome@exemplo.pt" required>
+        </div>
+        <div class="field">
+          <div class="field__row">
+            <label for="password">Palavra-passe</label>
+            <a href="#">Esqueci-me da palavra-passe</a>
+          </div>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <label class="check"><input type="checkbox" name="remember"> Manter sessão iniciada</label>
+        <button class="btn btn--navy" type="submit">Entrar</button>
+        <p class="login__msg" id="msg" role="status" hidden></p>
+      </form>
+
+      <p class="login__help">Precisa de acesso? Ligue <a href="tel:+351913955987">+351 913 955 987</a></p>
+    </div>
+
+    <aside class="login__panel" aria-label="O que encontra na área reservada">
+      <img class="login__mark" src="assets/logo-mark-light.svg" alt="" width="300" height="300">
+      <p class="eyebrow eyebrow--light">Numa só plataforma</p>
+      <h2>Explicações, TPC, mensagens e pagamentos.</h2>
+      <ul>
+        <li style="--dot: var(--orange)">Calendário das explicações marcadas</li>
+        <li style="--dot: var(--sky)">Fichas e TPC organizados por disciplina</li>
+        <li style="--dot: var(--pink)">Mensagens entre alunos, pais e professores</li>
+        <li style="--dot: var(--amber)">Pagamentos e avaliações do educando</li>
+      </ul>
+    </aside>
+  </div>
+
+  <script>
+    // Ainda sem backend: o formulário não envia dados.
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("msg");
+      msg.hidden = false;
+      msg.textContent = "O backoffice ainda está em desenvolvimento. Em breve poderá entrar aqui.";
+    });
+  </script>
+</body>
+</html>
