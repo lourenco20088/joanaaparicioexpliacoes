@@ -3,8 +3,6 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const initials = (name) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
-  const tints = ["var(--tint-orange)", "var(--tint-sky)", "var(--tint-pink)", "var(--tint-amber)"];
 
   // Contactos
   $$("[data-bind]").forEach((el) => (el.textContent = S[el.dataset.bind]));
@@ -15,25 +13,6 @@
   $$("[data-map]").forEach((f) => (f.src = "https://www.google.com/maps?q=" + encodeURIComponent(S.mapaQuery) + "&z=16&output=embed"));
   $$('[data-href="whatsapp"]').forEach((a) => (a.href = "https://wa.me/" + S.telefoneLink.replace("+", "")));
   $("#year").textContent = new Date().getFullYear();
-
-  // Explicadores
-  $("#team").innerHTML = S.explicadores
-    .map(
-      (p, i) => `
-      <article class="person">
-        <div class="person__photo" style="background:${tints[i % tints.length]}">
-          ${p.foto ? `<img src="${esc(p.foto)}" alt="${esc(p.nome)}" width="128" height="128" loading="lazy" data-initials="${esc(initials(p.nome))}">` : esc(initials(p.nome))}
-        </div>
-        <h3>${esc(p.nome)}</h3>
-        <span class="person__role">${esc(p.papel)}</span>
-        <span class="person__subjects">${p.disciplinas.map(esc).join(" · ")}</span>
-      </article>`
-    )
-    .join("");
-  // Se uma foto falhar, mostra as iniciais
-  $$("#team img").forEach((img) =>
-    img.addEventListener("error", () => img.replaceWith(document.createTextNode(img.dataset.initials)))
-  );
 
   // Disciplinas
   $("#subjects").innerHTML = S.disciplinas

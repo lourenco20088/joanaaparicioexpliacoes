@@ -14,16 +14,6 @@ window.SITE = {
     { dia: "Domingo e feriados", horas: "Encerrado", dias: [0] },
   ],
 
-  explicadores: [
-    { nome: "Joana Aparício", papel: "Organizadora e explicadora", disciplinas: ["Físico-Química", "Matemática"], foto: "assets/equipa/joana-aparicio.jpg" },
-    { nome: "Marco Freitas", papel: "Explicador", disciplinas: ["Matemática", "Biologia e Geologia"], foto: "assets/equipa/marco-freitas.jpg" },
-    { nome: "Inês Filipa", papel: "Explicadora", disciplinas: ["Português", "Psicologia", "Filosofia"], foto: "assets/equipa/ines-filipa.jpg" },
-    { nome: "Duarte Cunha", papel: "Explicador", disciplinas: ["Físico-Química", "Matemática"], foto: "assets/equipa/duarte-cunha.jpg" },
-    { nome: "Matilde Teixeira", papel: "Explicadora", disciplinas: ["Matemática", "Biologia e Geologia"], foto: "assets/equipa/matilde-teixeira.jpg" },
-    { nome: "Mariana Lage", papel: "Professora", disciplinas: ["Espanhol", "História", "Geografia"], foto: "assets/equipa/mariana-lage.jpg" },
-    { nome: "Vânia Ferreira", papel: "Explicadora", disciplinas: ["Matemática", "Economia", "Gestão"], foto: "assets/equipa/vania-ferreira.jpg" },
-  ],
-
   disciplinas: [
     { area: "Matemática", cor: "orange", itens: ["1.º ao 9.º ano", "Matemática A, B e MACS", "Cursos profissionais", "Álgebra Linear e Cálculo"] },
     { area: "Línguas", cor: "sky", itens: ["Português (1.º ao 12.º)", "Inglês (1.º ao 12.º)", "Apoio em Francês e Espanhol"] },
